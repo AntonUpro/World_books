@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+img {
+    width: 220px;
+    height: 200px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.head1 {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica';
+    font-size: 20px;
+    background-color: rgba(10, 32, 53, 0.5);
+}
+
+.head2 {
+    height: 200px;
+
+    margin: auto;
+    color: rgb(12, 70, 65);
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+}
+
+.sidebar-nav {
+    margin-top: 0;
+    padding: 0;
+    /* list-style: none; */
+    text-decoration: none;
+    font-size: 18px;
+    background-color: rgb(134, 230, 230);
+    width: 220px;
+    text-decoration: none;
+    min-height: calc(100vh - 300px);
+}
+
+.container-fluid {
+    /* background-color: rgb(69, 121, 103); */
+    color: rgb(3, 3, 3);
+    /* display: flex;
+	flex-direction: column; */
+    font-family: 'Arial', sans-serif;
+    min-height: calc(100vh - 300px);
+}
+.row {
+    display: flex;
+}
+
+.menu {
+    padding-left: 5px;
+    padding-top: 0;
+    color: beige;
+    border: 1px solid rgba(37, 83, 233, 0.4);
+    height: 50px;
+    vertical-align: middle;
+    line-height: 50px;
+    margin: 0;
+}
+
+.col-sm-10 {
+    padding-top: 20px;
+    padding-left: 10px;
+    line-height: 30px;
+    text-decoration: none;
+}
+
+li#user1 {
+    font-size: 15px;
+    color: rgb(209, 26, 26);
+}
+
+body {
+    background-color: rgb(201, 245, 230);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    min-width: 650px;
+}
+
+.footer {
+    height: 100px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    vertical-align: middle;
+    line-height: 100px;
+    background-color: rgba(28, 101, 170, 0.966);
+    flex: 0 0 auto;
+}
+
+ul {
+    padding-left: 20px;
+}

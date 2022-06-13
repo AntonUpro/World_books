@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%block title%}<title>Мир книги</title>{% endblock %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
+
+        <!-- <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
+     
+    </head>
+    <body>
+        {% block head %}
+        <div class="head1">
+            <img src="{% static 'images/logotip.jpg' %}">
+            <h1 class="head2">Сайт "Мир книг"</h1>
+        </div>
+        {% endblock %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    {% block sidebar %}
+                    <ul class="sidebar-nav">
+                        <li class="menu"><a href="{% url 'index' %}">Главная страница</a></li>
+                        <li class="menu"><a href="{% url 'books' %}">Все книги</a></li>
+                        <li class="menu"><a href="{% url 'authors' %}">Все авторы</a></li>
+                        <li class="menu"><a href="{% url 'authors_add' %}">Редактировать авторов</a></li>
+                        <li class="menu"><a href="{% url 'book_create' %}">Добавить книгу</a></li>
+                        {% if user.is_authenticated %}
+                            <li class="menu" id="user1">Пользователь: {{ user.get_username }}</li>
+                            <li class="menu"><a href="{% url 'logout' %}?next={{request.path}}">Выход</a></li>
+                        {% else %}
+                            <li class="menu"><a href="{% url 'login' %}?next={{request.path}}">Вход</a></li>
+                        {% endif %}
+                    </ul>
+                    {% endblock %}
+                </div>
+                <div class="col-sm-10">
+                    {% block content %}{% endblock %}
+                {% block pagination%}
+                {% if is_paginated %}
+                <div class="paginated">
+                    <span class="page-links">{% if page_obj.has_previous %}
+                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                        {% endif %}
+                        <span class="page-current">Страница {{page_obj.number}} из {{page_obj.paginator.num_pages}}</span>
+                        {% if page_obj.has_next %}
+                        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Следующая</a>
+                        {% endif %}
+                    </span>
+                </div>
+                {% endif %}
+                {% endblock %}
+                    
+                </div>
+            </div> 
+        </div>
+            {% block footer %}
+            {% block copyright %}
+                <footer class="footer">Copyright ООО "Люди и книги", 2022. Выполнено в учебных целях</footer>
+            {% endblock %}
+            {% endblock %}
+    </body>
+</html>
